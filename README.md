@@ -1,2 +1,8 @@
 # Terraform_demo_project
-Terraform simple demo project
+
+Terraform -> API as code
+> terraform init
+> terraform plan
+> terraform apply
+> terraform destroy
+
