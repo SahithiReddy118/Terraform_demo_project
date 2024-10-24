@@ -11,7 +11,7 @@ terraform {
   backend "s3" {
     bucket = "mybucket-terraform-state"  # Replace with your S3 bucket name
     key    = "terraform/terraform.tfstate"  # Path to store the state file in the bucket
-    region = "us-west-2"  # AWS region of your bucket
+    region = "us-east-1"  # AWS region of your bucket
     dynamodb_table = "terraform-lock"  # Name of DynamoDB table for state locking
   }
 }
