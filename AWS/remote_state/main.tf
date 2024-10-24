@@ -6,14 +6,6 @@ terraform {
     }
   }
   required_version = ">= 1.2.0"
-
-  # Backend configuration for S3 and DynamoDB
-  backend "s3" {
-    bucket = "mybucket-terraform-state"  # Replace with your S3 bucket name
-    key    = "terraform/terraform.tfstate"  # Path to store the state file in the bucket
-    region = "us-east-1"  # AWS region of your bucket
-    dynamodb_table = "terraform-lock"  # Name of DynamoDB table for state locking
-  }
 }
 
 # Configure the AWS Provider
@@ -32,7 +24,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  # Globally unique S3 bucket name using account ID
+  # Use a known bucket name here (after you run the code the first time)
   bucket = "${local.account_id}-terraform-states"
 
   # Enable versioning to keep track of state changes
@@ -77,4 +69,7 @@ resource "aws_instance" "web" {
     Name = "HelloWorld1"
   }
 }
+
+# Note: Add backend configuration here after running the initial apply
+
 
